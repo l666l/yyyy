@@ -229,7 +229,7 @@ class MiMotionRunner:
 
         response = requests.post(url, data=data, headers=head).json()
         # print(response)
-        return f"修改步数（{step}）[" + response['message'] + "]", True
+        return f"Step:{step} [" + response['message'] + "]", True
 
 
 # 启动主函数
