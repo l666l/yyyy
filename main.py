@@ -252,7 +252,7 @@ def push_to_push_plus(exec_results, summary):
                 else:
                     html += f'<li><span>账号：{exec_result["user"]}</span>刷步数失败，失败原因：{exec_result["msg"]}</li>'
             html += '</ul>'
-        push_plus(f"{format_now()} 刷步数通知", html)
+        push_plus(summary1, html)
 
 
 def run_single_account(total, idx, user_mi, passwd_mi):
@@ -301,6 +301,7 @@ def execute():
             if result['success'] is True:
                 success_count += 1
         summary = f"\n执行账号总数{total}，成功：{success_count}，失败：{total - success_count}"
+        summary1 = f"\n成功：{success_count}，失败：{total - success_count}，执行账号总数{total}"
         print(summary)
         push_to_push_plus(push_results, summary)
     else:
